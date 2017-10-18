@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a557b6e246bb8081b88f18a0eeb53979",
+    "hash": "db6526d4a2c14a1ca43bcd9968d79a79",
+    "content-hash": "e6de3c684ffc1a98af4494a354c30382",
     "packages": [
         {
             "name": "ddeboer/transcoder",

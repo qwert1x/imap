@@ -26,7 +26,7 @@ class Headers extends Parameters
 
     /**
      * Get header
-     * 
+     *
      * @param string $key
      *
      * @return string
@@ -35,7 +35,7 @@ class Headers extends Parameters
     {
         return parent::get(strtolower($key));
     }
-    
+
     private function parseHeader($key, $value)
     {
         switch ($key) {
@@ -52,8 +52,12 @@ class Headers extends Parameters
             case 'date':
                 $value = $this->decode($value);
                 $value = preg_replace('/([^\(]*)\(.*\)/', '$1', $value);
-
-                return new \DateTime($value);
+                try {
+                  $dt = new \DateTime($value);
+                } catch (\Exception $e) {
+                  $dt = new \DateTime('now');
+                }
+                return $dt;
             case 'from':
                 return $this->decodeEmailAddress(current($value));
             case 'to':
@@ -63,7 +67,7 @@ class Headers extends Parameters
                 foreach ($value as $address) {
                     $emails[] = $this->decodeEmailAddress($address);
                 }
-            
+
                 return $emails;
             case 'subject':
                 return $this->decode($value);
